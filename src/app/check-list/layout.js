@@ -7,9 +7,13 @@ export default function CheckListLayout({children}) {
     const list2 =
         ['Task A', 'Task B', 'Task C'];
 
-    return <div>
-        <h1>To-Do Lists</h1>
-        <ToDoList list={list1} name={"ToDo"}/>
-        <ToDoList list={list2} name={"Done"}/>
-    </div>
+    return (
+        <div>
+            <h1>To-Do Lists</h1>
+            <div>
+                <ToDoList list={list1} name={"ToDo"}/>
+                <ToDoList list={list2} name={"Done"}/>
+            </div>
+        </div>
+    )
 }
