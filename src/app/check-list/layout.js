@@ -3,15 +3,28 @@ import ToDoList from "@/components/List/ToDo/ToDoList.component";
 import DoneList from "@/components/List/Done/DoneList.component";
 
 export default function CheckListLayout({children}) {
-    const [list1, setList1] = useState(['Task 1', 'Task 2', 'Task 3']);
-    const [list2] = useState(['Task A', 'Task B', 'Task C']);
+    const [todoList, setToDoList] = useState(['Task 1', 'Task 2', 'Task 3']);
+    const [doneList, setDoneList] = useState(['Task A', 'Task B', 'Task C']);
+
+
+    const removeFromDoneList = (keyToRemove) => {
+        const updatedDoneList = doneList.filter(task => task !== keyToRemove);
+        debugger
+        setDoneList(updatedDoneList);
+    }
+
+    const validateTask = (keyToValidate) => {
+        const updatedToDoList = todoList.filter(task => task !== keyToValidate);
+        debugger
+        setToDoList(updatedToDoList);
+    }
 
     return (
         <div>
             <h1>To-Do Lists</h1>
             <div>
-                <ToDoList list={list1} setList={setList1}/>
-                <DoneList list={list2}/>
+                <ToDoList list={todoList} setList={setToDoList} doneList={setDoneList} validateTask={validateTask}/>
+                <DoneList doneList={doneList} todoList={setToDoList} removeFromDoneList={removeFromDoneList}/>
             </div>
         </div>
     )

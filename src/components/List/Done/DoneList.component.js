@@ -1,15 +1,16 @@
 import DoneItem from "@/components/Item/Done/DoneItem.component";
 import styles from "../list.module.css";
 
-const DoneList = ({list}) => {
+const DoneList = ({doneList, todoList, removeFromDoneList}) => {
+
     return (
         <div className={styles.templateList}>
             <div>
                 <h3>Done:</h3>
             </div>
             <div>
-                {list.map((task, index) => (
-                    <DoneItem key={index} task={task}/>
+                {doneList.map((task) => (
+                    <DoneItem task={task} todoList={todoList} removeFromDoneList={removeFromDoneList}/>
                 ))}
             </div>
         </div>

@@ -3,7 +3,7 @@ import ToDoItem from "@/components/Item/ToDo/ToDoItem.component";
 import AddItem from "@/components/Item/Add/AddItem.component";
 import styles from "../list.module.css";
 
-const ToDoList = ({list, setList}) => {
+const ToDoList = ({list, setList, doneList, validateTask}) => {
 
     return (
         <div className={styles.templateList}>
@@ -11,8 +11,8 @@ const ToDoList = ({list, setList}) => {
                 <h3>To Do:</h3>
             </div>
             <div>
-                {list.map((task, index) => (
-                    <ToDoItem key={index} task={task}/>
+                {list.map((task) => (
+                    <ToDoItem task={task} doneList={doneList} validateTask={validateTask}/>
                 ))}
                 <AddItem setList={setList}/>
             </div>
